@@ -1,0 +1,28 @@
+name: Deploy to S3
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Configure AWS credentials using secrets stored in your GitHub repo
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1  # Change this to your desired AWS region
+
+      # Step 3: Sync the repository (or a specific directory) to your S3 bucket
+      - name: Sync files to S3
+        run: |
+          aws s3 sync . s3://www.thefactoryprint.ng --delete --exclude ".git/*" --exclude ".github/*"
