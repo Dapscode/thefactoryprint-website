@@ -1,0 +1,373 @@
+/* rem en em do NOT depend on html font-size in media queries! instead, 1rem = 1em = 16px */
+
+/* Because of some bugs in rem use em in media queries! */
+
+/***********************************/
+/* BELOW 1344PX (Smaller Desktp)*/
+/***********************************/
+
+@media (max-width: 84em) {
+  .hero {
+    max-width: 120rem;
+  }
+}
+
+/***********************************/
+/* BELOW 1200PX (Landscape Tablets)*/
+/***********************************/
+
+@media (max-width: 75em) {
+  html {
+    /* 9px / 16px = 0.5625 which is 56.25% */
+    font-size: 56.25%;
+  }
+
+  .header-logo {
+    padding-left: 0;
+  }
+
+  .hero-msg-2 {
+    font-size: 4rem;
+  }
+
+  .hero-msg-3 {
+    font-size: 1.8rem;
+  }
+}
+
+/***********************************/
+/* BELOW 1040PX (Tablets)    */
+/***********************************/
+
+@media (max-width: 66em) {
+  html {
+    /* 8px / 16px = 0.5 which is 50% */
+    font-size: 50%;
+  }
+
+  .hero-msg-1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-msg-2 {
+    font-size: 3.6rem;
+  }
+
+  .hero-text__subheading {
+    font-size: 1.6rem;
+  }
+
+  .service-p {
+    font-size: 1.3rem;
+  }
+
+  .offer-p {
+    font-size: 1.6rem;
+  }
+
+  .rating-card-heading {
+    font-size: 2.8rem;
+  }
+}
+
+/***********************************/
+/* BELOW 896PX (Tablets)    */
+/***********************************/
+
+@media (max-width: 56em) {
+  html {
+    /* 7px / 16px = 0.437 which is 44% */
+    font-size: 44%;
+  }
+
+  .grid--4-cols {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 6.4rem;
+  }
+
+  .rating-card-heading {
+    font-size: 2.4rem;
+  }
+
+  .rating-card-p {
+    font-size: 1.8rem;
+  }
+
+  .experience,
+  .proof-text {
+    justify-self: center;
+  }
+
+  .btn-mobile-nav {
+    display: block;
+    z-index: 9999;
+  }
+
+  .main-nav {
+    background-color: rgba(255, 255, 255, 0.97);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: 1000; /* Added z-index to ensure it appears above other elements */
+  }
+
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .main-nav__items {
+    flex-direction: column;
+    /* gap: 4.8rem; */
+  }
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    color: #333;
+    font-size: 3rem;
+  }
+
+  .main-nav-link.nav-cta {
+    color: white;
+  }
+}
+
+/***********************************/
+/* BELOW 752PX (Smaler Tablet)    */
+/***********************************/
+
+@media (max-width: 47em) {
+  /* Hide .hero-boxes */
+  .hero-boxes {
+    display: none;
+  }
+
+  /* If you have an extra empty div (for example, the second child), hide it too */
+  .section-hero > :nth-child(2) {
+    display: none;
+  }
+
+  /* Optionally, if you want to override any grid styles on .hero, you can reset it */
+  .hero {
+    display: block; /* or whatever display property you need */
+    width: 100%;
+  }
+
+  .about-us-subheading {
+    font-size: 2.7rem;
+  }
+
+  .rating-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rating-card-p,
+  .hero-text__subheading,
+  .offer-p,
+  .about-us-img-description-text,
+  .service-p {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
+
+  .booking-confirm-msg {
+    font-size: 1.7rem;
+  }
+}
+
+/***********************************/
+/* BELOW 544PX (Smaler Tablet)    */
+/***********************************/
+
+@media (max-width: 34em) {
+  .hero-img {
+    width: 100%;
+  }
+
+  .hero-msg-2 {
+    font-size: 3.6rem;
+  }
+
+  /* Make the container a one-column grid with two rows */
+  .hero-text {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  /* Put the image in the first row */
+  .hero-image {
+    grid-row: 2;
+  }
+
+  /* Put the text in the second row */
+  .hero-text-left {
+    grid-row: 1;
+  }
+
+  .hero-msg-1 {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+
+  .hero-msg-2 {
+    font-size: 3.4rem;
+  }
+
+  .hero-msg-3 {
+    font-size: 2.4rem;
+  }
+
+  .hero-text__subheading {
+    font-size: 1.8rem;
+  }
+
+  .btn--primary {
+    margin-bottom: 2.4rem;
+  }
+
+  .choose-us-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-choose-us {
+    padding-bottom: 2rem;
+  }
+
+  .choose-us-heading,
+  .about-us-heading,
+  .our-services-heading {
+    font-size: 2.4rem;
+  }
+
+  .about-us-subheading {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-heading {
+    font-size: 2.4rem;
+  }
+
+  .service-p {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-confirm-msg {
+    font-size: 1.6rem;
+  }
+
+  .booking-confirm-msg h2 {
+    font-size: 2.4rem;
+  }
+}
+
+/***********************************/
+/* BELOW 416PX (Mobile)    */
+/***********************************/
+
+@media (max-width: 26em) {
+  .grid--4-cols {
+    grid-template-columns: 1fr;
+    row-gap: 3.6rem;
+  }
+
+  .rating-card-box {
+    padding: 4.8rem;
+  }
+
+  .about-us-subheading {
+    font-size: 2rem;
+  }
+
+  .about-us-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-us-descr1 {
+    grid-row: 2;
+  }
+  .about-us-descr2 {
+    grid-row: 4;
+  }
+  .about-us-descr3 {
+    grid-row: 6;
+  }
+
+  .choose-us-msg-point {
+    margin-bottom: 3.4rem;
+  }
+
+  .our-services-subheading {
+    font-size: 2.4rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .company {
+    justify-items: center;
+  }
+
+  .web-page {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    margin-right: 0rem;
+  }
+
+  .footer-left {
+    justify-items: center;
+  }
+
+  .footer-text {
+    text-align: center;
+  }
+
+  .copyright {
+    font-size: 1.2rem;
+  }
+
+  .footer-link:link,
+  .footer-link:visited {
+    font-size: 2rem;
+    padding-left: 4rem;
+  }
+
+  .request-msg {
+    font-size: 2.4rem;
+  }
+}
